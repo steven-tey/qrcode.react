@@ -375,15 +375,4 @@ function QRCodeSVG(props: QRPropsSVG) {
   );
 }
 
-type RootProps =
-  | (QRPropsSVG & {renderAs: 'svg'})
-  | (QRPropsCanvas & {renderAs?: 'canvas'});
-const QRCode = (props: RootProps) => {
-  const {renderAs, ...otherProps} = props;
-  if (renderAs === 'svg') {
-    return <QRCodeSVG {...(otherProps as QRPropsSVG)} />;
-  }
-  return <QRCodeCanvas {...(otherProps as QRPropsCanvas)} />;
-};
-
-export {QRCode as default, QRCodeCanvas, QRCodeSVG};
+export {QRCodeCanvas, QRCodeSVG};
